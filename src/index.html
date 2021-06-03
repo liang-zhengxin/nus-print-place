@@ -7,6 +7,7 @@
     <body>
         <h1>NUS Print Shopes</h1>
         <div id='mapdiv' style='height:90%;width:100%;'></div>
+        <div>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </body>
     <script>
         var map = L.map('mapdiv').setView([1.2967137693402888, 103.77355482544715], 17);
@@ -19,13 +20,10 @@
         basemap.addTo(map);
 
         var greenIcon = L.icon({
-                iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
-                iconSize: [38, 95],
-                iconAnchor: [22, 94],
-                popupAnchor: [-3, -76],
-                shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
-                shadowSize: [68, 95],
-                shadowAnchor: [22, 94]
+                iconUrl: './img/printer.png',
+                iconSize: [24, 24],
+                iconAnchor: [20, 24],
+                popupAnchor: [-10, -25]
         });
 
         var vendors = [
