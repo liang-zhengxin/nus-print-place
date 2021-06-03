@@ -4,6 +4,7 @@
         "locName": "YIH",
         "Lat": 1.2987172705039607,
         "Long": 103.77504311915789,
+        "Connection": "Wireless",
         "Cost": {
             "Mono": 0.03,
             "Colour": 0.30
@@ -14,6 +15,7 @@
         "locName": "AS8",
         "Lat": 1.296079033882818, 
         "Long": 103.77206105459729,
+        "Connection": "Wireless",
         "Cost": {
             "Mono": 0.03,
             "Colour": 0.30
