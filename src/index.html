@@ -19,14 +19,14 @@
         map.setMaxBounds([[1.56073, 104.1147], [1.16, 103.502]]);
         basemap.addTo(map);
 
-        var greenIcon = L.icon({
+        var Icon = L.icon({
                 iconUrl: './img/printer.png',
                 iconSize: [24, 24],
                 iconAnchor: [20, 24],
                 popupAnchor: [-10, -25]
         });
 
-        var vendors = [
+        var printShopes = [
             {
                 "Name": "NUSSU CommIT Computer Centre",
                 "locName": "YIH",
@@ -54,9 +54,9 @@
         ];
 
         var marker = (function() {
-                for (let index = 0; index < vendors.length; index++) {
-                    L.marker([vendors[index].Lat, vendors[index].Long],  {icon: greenIcon})
-                    .bindPopup(vendors[index].Name)
+                for (let index = 0; index < printShopes.length; index++) {
+                    L.marker([printShopes[index].Lat, printShopes[index].Long],  {icon: Icon})
+                    .bindPopup(printShopes[index].Name)
                     .addTo(map);
                 }
         })()
