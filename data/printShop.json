@@ -5,6 +5,7 @@
         "Lat": 1.2987172705039607,
         "Long": 103.77504311915789,
         "Connection": "Wireless",
+        "payMode": "EZ-LINK",
         "Cost": {
             "Mono": 0.03,
             "Colour": 0.30
@@ -16,6 +17,7 @@
         "Lat": 1.296079033882818, 
         "Long": 103.77206105459729,
         "Connection": "Wireless",
+        "payMode": "EZ-LINK",
         "Cost": {
             "Mono": 0.03,
             "Colour": 0.30
