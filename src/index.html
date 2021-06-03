@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>NUS Print Shopes</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+        <script src="https://cdn.onemap.sg/leaflet/onemap-leaflet.js"></script>
+    </head>
+    <body>
+        <h1>NUS Print Shopes</h1>
+        <div id='mapdiv' style='height:90%;width:100%;'></div>
+    </body>
+    <script>
+        var map = L.map('mapdiv').setView([1.2967137693402888, 103.77355482544715], 17);
+        var basemap = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
+              detectRetina: true,
+              maxZoom: 19,
+              minZoom: 0
+        });
+        map.setMaxBounds([[1.56073, 104.1147], [1.16, 103.502]]);
+        basemap.addTo(map);
+
+        var greenIcon = L.icon({
+                iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
+                iconSize: [38, 95],
+                iconAnchor: [22, 94],
+                popupAnchor: [-3, -76],
+                shadowUrl: 'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+                shadowSize: [68, 95],
+                shadowAnchor: [22, 94]
+        });
+
+        var vendors = [
+            {
+                "Name": "NUSSU CommIT Computer Centre",
+                "locName": "YIH",
+                "Lat": 1.2987172705039607,
+                "Long": 103.77504311915789,
+                "Connection": "Wireless",
+                "payMode": "EZ-LINK",
+                "Cost": {
+                    "Mono": 0.03,
+                    "Colour": 0.30
+                }
+            },
+            {
+                "Name": "NUSSU CommIT Computer Centre",
+                "locName": "AS8",
+                "Lat": 1.296079033882818, 
+                "Long": 103.77206105459729,
+                "Connection": "Wireless",
+                "payMode": "EZ-LINK",
+                "Cost": {
+                    "Mono": 0.03,
+                    "Colour": 0.30
+                }
+            } 
+        ];
+
+        var marker = (function() {
+                for (let index = 0; index < vendors.length; index++) {
+                    L.marker([vendors[index].Lat, vendors[index].Long],  {icon: greenIcon})
+                    .bindPopup(vendors[index].Name)
+                    .addTo(map);
+                }
+        })()
+    </script>
+</html>
