@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>NUS Print Shopes</title>
+        <link rel="shortcut icon" type="image/png" href="/img/printer.png"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
         <script src="https://cdn.onemap.sg/leaflet/onemap-leaflet.js"></script>
     </head>
@@ -101,8 +102,13 @@
                 for (let index = 0; index < printShopes.length; index++) {
                     L.marker([printShopes[index].Lat, printShopes[index].Long],  {icon: Icon})
                     .bindPopup(popName(printShopes[index].Name,printShopes[index].locName,printShopes[index].Cost.Mono,printShopes[index].Cost.Colour,printShopes[index].Owner,printShopes[index].Connection,printShopes[index].payMode))
+                    .on('click', clickZoom)
                     .addTo(map);
                 }
         })()
+
+        function clickZoom(e) {
+            map.setView(e.target.getLatLng(),17);
+        }
     </script>
 </html>
