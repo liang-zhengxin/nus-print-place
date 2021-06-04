@@ -10,7 +10,7 @@
         <div>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </body>
     <script>
-        var map = L.map('mapdiv').setView([1.2967137693402888, 103.77355482544715], 17);
+        var map = L.map('mapdiv').setView([1.3009541383368919, 103.77867077821779], 16);
         var basemap = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
               detectRetina: true,
               maxZoom: 19,
@@ -30,6 +30,7 @@
             {
                 "Name": "NUSSU CommIT Computer Centre",
                 "locName": "YIH",
+                "Owner": "NUSSU COMMIT",
                 "Lat": 1.2987172705039607,
                 "Long": 103.77504311915789,
                 "Connection": "Wireless",
@@ -42,6 +43,7 @@
             {
                 "Name": "NUSSU CommIT Computer Centre",
                 "locName": "AS8",
+                "Owner": "NUSSU COMMIT",
                 "Lat": 1.296079033882818, 
                 "Long": 103.77206105459729,
                 "Connection": "Wireless",
@@ -50,13 +52,55 @@
                     "Mono": 0.03,
                     "Colour": 0.30
                 }
-            } 
+            },
+            {
+                "Name": "UTown Mac Commons",
+                "locName": "UTOWN Mac Commons",
+                "Owner": "NUSIT",
+                "Lat": 1.305764403707234,  
+                "Long": 103.77314893476631,
+                "Connection": "Wireless",
+                "payMode": "EZ-LINK",
+                "Cost": {
+                    "Mono": 0.04,
+                    "Colour": 0.40
+                }
+            },
+            {
+                "Name": "UTown PC Commons",
+                "locName": "UTOWN PC Commons",
+                "Owner": "NUSIT",
+                "Lat": 1.3062269401994266,   
+                "Long": 103.77291380157752,
+                "Connection": "Wireless",
+                "payMode": "EZ-LINK",
+                "Cost": {
+                    "Mono": 0.04,
+                    "Colour": 0.40
+                }
+            },
+            {
+                "Name": "NUS COOP LT27",
+                "locName": "LT27",
+                "Owner": "Ultra Supplies",
+                "Lat": 1.2971659642750792,   
+                "Long": 103.781090656446,
+                "Connection": "USB",
+                "payMode": "PAYLAH",
+                "Cost": {
+                    "Mono": 0.04,
+                    "Colour": 0.50
+                }
+            }
         ];
+        function popName(name,loc,pmono,pcol,owner,Connection,pay) {
+            return "<h3>"+ String(name)+"</h3>"+"Location: "+ String(loc) +'<br>'+"Managed By: "+ String(owner) +'<br>'+"Connection Mode: "+ String(Connection) +'<br>'+"Payment Mode: "+ String(pay) +'<br>'+"Price/Pg: $"+ String(pmono) + " (Mono) $" + String(pcol) + " (Colour) "
+        }
 
         var marker = (function() {
                 for (let index = 0; index < printShopes.length; index++) {
                     L.marker([printShopes[index].Lat, printShopes[index].Long],  {icon: Icon})
-                    .bindPopup(printShopes[index].Name)
+                    .bindPopup(popName(printShopes[index].Name,printShopes[index].locName,printShopes[index].Cost.Mono,printShopes[index].Cost.Colour,printShopes[index].Owner,printShopes[index].Connection,printShopes[index].payMode))
                     .addTo(map);
                 }
         })()
