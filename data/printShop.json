@@ -2,6 +2,7 @@
     {
         "Name": "NUSSU CommIT Computer Centre",
         "locName": "YIH",
+        "Owner": "NUSSU COMMIT",
         "Lat": 1.2987172705039607,
         "Long": 103.77504311915789,
         "Connection": "Wireless",
@@ -14,6 +15,7 @@
     {
         "Name": "NUSSU CommIT Computer Centre",
         "locName": "AS8",
+        "Owner": "NUSSU COMMIT",
         "Lat": 1.296079033882818, 
         "Long": 103.77206105459729,
         "Connection": "Wireless",
@@ -22,5 +24,44 @@
             "Mono": 0.03,
             "Colour": 0.30
         }
-    } 
+    },
+    {
+        "Name": "UTown Mac Commons",
+        "locName": "UTOWN Mac Commons",
+        "Owner": "NUSIT",
+        "Lat": 1.305764403707234,  
+        "Long": 103.77314893476631,
+        "Connection": "Wireless",
+        "payMode": "EZ-LINK",
+        "Cost": {
+            "Mono": 0.04,
+            "Colour": 0.40
+        }
+    },
+    {
+        "Name": "UTown PC Commons",
+        "locName": "UTOWN PC Commons",
+        "Owner": "NUSIT",
+        "Lat": 1.3062269401994266,   
+        "Long": 103.77291380157752,
+        "Connection": "Wireless",
+        "payMode": "EZ-LINK",
+        "Cost": {
+            "Mono": 0.04,
+            "Colour": 0.40
+        }
+    },
+    {
+        "Name": "NUS COOP LT27",
+        "locName": "LT27",
+        "Owner": "Ultra Supplies",
+        "Lat": 1.2971659642750792,   
+        "Long": 103.781090656446,
+        "Connection": "USB",
+        "payMode": "PAYLAH",
+        "Cost": {
+            "Mono": 0.04,
+            "Colour": 0.50
+        }
+    }
 ]
