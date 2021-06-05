@@ -142,10 +142,10 @@
         var p = []
         ul = document.createElement('ul');
         document.getElementById('sidebar').appendChild(ul);
-        for (let index = 0; index < printShopes.length; index++) {
+        for (let index = 0; index < printShops.length; index++) {
             let li = document.createElement('li');
             ul.appendChild(li);
-            li.innerHTML += "<div id=p"+String(index)+"><a>"+printShopes[index].locName+"</a></div>";
+            li.innerHTML += "<div id=p"+String(index)+"><a>"+printShops[index].locName+"</a></div>";
             var pp = document.querySelector('#p'+String(index));
             p.push(pp);
         };
@@ -162,7 +162,7 @@
                     .addTo(map);
 
                     p[index].addEventListener("click",()=> {
-                        map.setView([printShopes[index].Lat, printShopes[index].Long],17)
+                        map.setView([printShops[index].Lat, printShops[index].Long],17)
                         m.openPopup()
                     });
                 };
