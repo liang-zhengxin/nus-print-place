@@ -4,11 +4,56 @@
         <link rel="shortcut icon" type="image/png" href="img/printer.png"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
         <script src="https://cdn.onemap.sg/leaflet/onemap-leaflet.js"></script>
+        <style> 
+            .sidebar {
+              margin: 0;
+              padding: 0;
+              width: 20vw;
+              background-color: #f1f1f1;
+              position: fixed;
+              height: 90vh;
+              overflow: auto;
+            }
+            
+            .sidebar a {
+              display: block;
+              color: black;
+              padding: 16px;
+              text-decoration: none;
+            }
+            
+            .sidebar a:hover:not(.active) {
+              background-color: #555;
+              color: white;
+            }
+            #mapdiv {
+                position: fixed;
+                width: 80vw;
+                height: 90vh;
+                right: 0
+            }
+            #credits {
+                position: absolute;
+                right: 0;
+                top: 5px;
+                width: 400px;
+                height: 120px;
+            }
+            #sidebar ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            }
+        </style>
     </head>
     <body>
         <h1>NUS Print Shops</h1>
-        <div id='mapdiv' style='height:90%;width:100%;'></div>
-        <div>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        <div class="sidebar">
+            <div id="sidebar">                
+            </div>
+        </div>
+        <div id='mapdiv'></div>
+        <div id='credits'>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     </body>
     <script>
         var map = L.map('mapdiv').setView([1.3009541383368919, 103.77867077821779], 16);
@@ -94,17 +139,33 @@
                 }
             }
         ];
+        var p = []
+        ul = document.createElement('ul');
+        document.getElementById('sidebar').appendChild(ul);
+        for (let index = 0; index < printShopes.length; index++) {
+            let li = document.createElement('li');
+            ul.appendChild(li);
+            li.innerHTML += "<div id=p"+String(index)+"><a>"+printShopes[index].locName+"</a></div>";
+            var pp = document.querySelector('#p'+String(index));
+            p.push(pp);
+        };
+
         function popName(name,loc,pmono,pcol,owner,Connection,pay) {
             return "<h3>"+ String(name)+"</h3>"+"Location: "+ String(loc) +'<br>'+"Managed By: "+ String(owner) +'<br>'+"Connection Mode: "+ String(Connection) +'<br>'+"Payment Mode: "+ String(pay) +'<br>'+"Price/Pg: $"+ String(pmono) + " (Mono) $" + String(pcol) + " (Colour) "
         }
 
         var marker = (function() {
                 for (let index = 0; index < printShops.length; index++) {
-                    L.marker([printShops[index].Lat, printShops[index].Long],  {icon: Icon})
+                    let m = L.marker([printShops[index].Lat, printShops[index].Long],  {icon: Icon})
                     .bindPopup(popName(printShops[index].Name,printShops[index].locName,printShops[index].Cost.Mono,printShops[index].Cost.Colour,printShops[index].Owner,printShops[index].Connection,printShops[index].payMode))
                     .on('click', clickZoom)
                     .addTo(map);
-                }
+
+                    p[index].addEventListener("click",()=> {
+                        map.setView([printShopes[index].Lat, printShopes[index].Long],17)
+                        m.openPopup()
+                    });
+                };
         })()
 
         function clickZoom(e) {
