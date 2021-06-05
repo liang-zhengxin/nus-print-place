@@ -63,5 +63,18 @@
             "Mono": 0.04,
             "Colour": 0.50
         }
+    },
+    {
+        "Name": "Central Library",
+        "locName": "CLB",
+        "Owner": "NUSLIBS",
+        "Lat": 1.2967084062961476,    
+        "Long": 103.7732597824699,
+        "Connection": "No Data",
+        "payMode": "No Data",
+        "Cost": {
+            "Mono": "No Data",
+            "Colour": "No Data"
+        }
     }
 ]
