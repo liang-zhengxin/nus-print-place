@@ -139,14 +139,6 @@
                 }
             }
         ];
-        var printShops = fetch('data/printShop.json')
-            .then((response) => {
-                return response.json()
-            })
-            .then((data) => {
-                // Work with JSON data here
-                return data
-            });
         var p = []
         ul = document.createElement('ul');
         document.getElementById('sidebar').appendChild(ul);
