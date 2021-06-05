@@ -76,5 +76,31 @@
             "Mono": "No Data",
             "Colour": "No Data"
         }
+    },
+    {
+        "Name": "E2 Print Room",
+        "locName": "FOE E2",
+        "Owner": "NUSIT",
+        "Lat": 1.2991619589607966,     
+        "Long": 103.77140149275091,
+        "Connection": "Wireless",
+        "payMode": "EZ-LINK",
+        "Cost": {
+            "Mono": 0.04,
+            "Colour": 0.40
+        }
+    },
+    {
+        "Name": "E3 Level 3 Study Corner",
+        "locName": "FOE E3",
+        "Owner": "NUSIT",
+        "Lat": 1.30161734768291,     
+        "Long": 103.77256806288005,
+        "Connection": "Wireless",
+        "payMode": "EZ-LINK",
+        "Cost": {
+            "Mono": 0.04,
+            "Colour": 0.40
+        }
     }
 ]
