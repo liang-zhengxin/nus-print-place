@@ -27,7 +27,7 @@
                 popupAnchor: [-10, -25]
         });
 
-        var printShopes = [
+        var printShops = [
             {
                 "Name": "NUSSU CommIT Computer Centre",
                 "locName": "YIH",
@@ -99,9 +99,9 @@
         }
 
         var marker = (function() {
-                for (let index = 0; index < printShopes.length; index++) {
-                    L.marker([printShopes[index].Lat, printShopes[index].Long],  {icon: Icon})
-                    .bindPopup(popName(printShopes[index].Name,printShopes[index].locName,printShopes[index].Cost.Mono,printShopes[index].Cost.Colour,printShopes[index].Owner,printShopes[index].Connection,printShopes[index].payMode))
+                for (let index = 0; index < printShops.length; index++) {
+                    L.marker([printShops[index].Lat, printShops[index].Long],  {icon: Icon})
+                    .bindPopup(popName(printShops[index].Name,printShops[index].locName,printShops[index].Cost.Mono,printShops[index].Cost.Colour,printShops[index].Owner,printShops[index].Connection,printShops[index].payMode))
                     .on('click', clickZoom)
                     .addTo(map);
                 }
