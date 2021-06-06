@@ -38,7 +38,7 @@ function listName(printShops) {
                 .addTo(map);
 
                 p[index].addEventListener("click",()=> {
-                    map.setView([printShops[index].Lat, printShops[index].Long],17)
+                    map.setView([printShops[index].Lat, printShops[index].Long],19)
                     m.openPopup()
                 });
             };
@@ -50,5 +50,5 @@ function popName(name,loc,pmono,pcol,owner,Connection,pay) {
 }
 
 function clickZoom(e) {
-    map.setView(e.target.getLatLng(),17);
+    map.setView(e.target.getLatLng(),19);
 }
