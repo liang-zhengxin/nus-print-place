@@ -71,141 +71,41 @@
                 iconAnchor: [20, 24],
                 popupAnchor: [-10, -25]
         });
+  
+        fetch("https://liang-zhengxin.github.io/nus-print-place/data/printShop.json")
+            .then(response => response.json())
+            .then(data=> {listName(data)});
 
-        var printShops = [
-            {
-                "Name": "NUSSU CommIT Computer Centre",
-                "locName": "YIH",
-                "Owner": "NUSSU COMMIT",
-                "Lat": 1.2987172705039607,
-                "Long": 103.77504311915789,
-                "Connection": "Wireless",
-                "payMode": "EZ-LINK",
-                "Cost": {
-                    "Mono": 0.03,
-                    "Colour": 0.30
-                }
-            },
-            {
-                "Name": "NUSSU CommIT Computer Centre",
-                "locName": "AS8",
-                "Owner": "NUSSU COMMIT",
-                "Lat": 1.296079033882818, 
-                "Long": 103.77206105459729,
-                "Connection": "Wireless",
-                "payMode": "EZ-LINK",
-                "Cost": {
-                    "Mono": 0.03,
-                    "Colour": 0.30
-                }
-            },
-            {
-                "Name": "UTown Mac Commons",
-                "locName": "UTOWN Mac Commons",
-                "Owner": "NUSIT",
-                "Lat": 1.305764403707234,  
-                "Long": 103.77314893476631,
-                "Connection": "Wireless",
-                "payMode": "EZ-LINK",
-                "Cost": {
-                    "Mono": 0.04,
-                    "Colour": 0.40
-                }
-            },
-            {
-                "Name": "UTown PC Commons",
-                "locName": "UTOWN PC Commons",
-                "Owner": "NUSIT",
-                "Lat": 1.3062269401994266,   
-                "Long": 103.77291380157752,
-                "Connection": "Wireless",
-                "payMode": "EZ-LINK",
-                "Cost": {
-                    "Mono": 0.04,
-                    "Colour": 0.40
-                }
-            },
-            {
-                "Name": "NUS COOP LT27",
-                "locName": "LT27",
-                "Owner": "Ultra Supplies",
-                "Lat": 1.2971659642750792,   
-                "Long": 103.781090656446,
-                "Connection": "USB",
-                "payMode": "PAYLAH",
-                "Cost": {
-                    "Mono": 0.04,
-                    "Colour": 0.50
-                }
-            },
-            {
-                "Name": "Central Library",
-                "locName": "CLB",
-                "Owner": "NUSLIBS",
-                "Lat": 1.2967084062961476,    
-                "Long": 103.7732597824699,
-                "Connection": "No Data",
-                "payMode": "No Data",
-                "Cost": {
-                    "Mono": "No Data",
-                    "Colour": "No Data"
-                }
-            },
-            {
-                "Name": "E2 Print Room",
-                "locName": "FOE E2",
-                "Owner": "NUSIT",
-                "Lat": 1.2991619589607966,     
-                "Long": 103.77140149275091,
-                "Connection": "Wireless",
-                "payMode": "EZ-LINK",
-                "Cost": {
-                    "Mono": 0.04,
-                    "Colour": 0.40
-                }
-            },
-            {
-                "Name": "E3 Level 3 Study Corner",
-                "locName": "FOE E3",
-                "Owner": "NUSIT",
-                "Lat": 1.2995381833809239,    
-                "Long": 103.77176037734654,
-                "Connection": "Wireless",
-                "payMode": "EZ-LINK",
-                "Cost": {
-                    "Mono": 0.04,
-                    "Colour": 0.40
-                }
-            }
-        ];
-        var p = []
-        ul = document.createElement('ul');
-        document.getElementById('sidebar').appendChild(ul);
-        for (let index = 0; index < printShops.length; index++) {
-            let li = document.createElement('li');
-            ul.appendChild(li);
-            li.innerHTML += "<div id=p"+String(index)+"><a>"+printShops[index].locName+"</a></div>";
-            var pp = document.querySelector('#p'+String(index));
-            p.push(pp);
+        function listName(printShops) {
+            var p = []
+            ul = document.createElement('ul');
+            document.getElementById('sidebar').appendChild(ul);
+            for (let index = 0; index < printShops.length; index++) {
+                let li = document.createElement('li');
+                ul.appendChild(li);
+                li.innerHTML += "<div id=p"+String(index)+"><a>"+printShops[index].locName+"</a></div>";
+                var pp = document.querySelector('#p'+String(index));
+                p.push(pp)
+            };
+
+            var marker = (function() {
+                    for (let index = 0; index < printShops.length; index++) {
+                        let m = L.marker([printShops[index].Lat, printShops[index].Long],  {icon: Icon})
+                        .bindPopup(popName(printShops[index].Name,printShops[index].locName,printShops[index].Cost.Mono,printShops[index].Cost.Colour,printShops[index].Owner,printShops[index].Connection,printShops[index].payMode))
+                        .on('click', clickZoom)
+                        .addTo(map);
+
+                        p[index].addEventListener("click",()=> {
+                            map.setView([printShops[index].Lat, printShops[index].Long],17)
+                            m.openPopup()
+                        });
+                    };
+            })();
         };
 
         function popName(name,loc,pmono,pcol,owner,Connection,pay) {
             return "<h3>"+ String(name)+"</h3>"+"Location: "+ String(loc) +'<br>'+"Managed By: "+ String(owner) +'<br>'+"Connection Mode: "+ String(Connection) +'<br>'+"Payment Mode: "+ String(pay) +'<br>'+"Price/Pg: $"+ String(pmono) + " (Mono) $" + String(pcol) + " (Colour) "
         }
-
-        var marker = (function() {
-                for (let index = 0; index < printShops.length; index++) {
-                    let m = L.marker([printShops[index].Lat, printShops[index].Long],  {icon: Icon})
-                    .bindPopup(popName(printShops[index].Name,printShops[index].locName,printShops[index].Cost.Mono,printShops[index].Cost.Colour,printShops[index].Owner,printShops[index].Connection,printShops[index].payMode))
-                    .on('click', clickZoom)
-                    .addTo(map);
-
-                    p[index].addEventListener("click",()=> {
-                        map.setView([printShops[index].Lat, printShops[index].Long],17)
-                        m.openPopup()
-                    });
-                };
-        })()
 
         function clickZoom(e) {
             map.setView(e.target.getLatLng(),17);
