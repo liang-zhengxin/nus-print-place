@@ -65,20 +65,20 @@
         }
     },
     {
-        "Name": "Central Library",
+        "Name": "Central Library Level 5",
         "locName": "CLB",
         "Owner": "NUSLIBS",
         "Lat": 1.2967084062961476,    
         "Long": 103.7732597824699,
-        "Connection": "No Data",
-        "payMode": "No Data",
+        "Connection": "NO DATA",
+        "payMode": "EZ-LINK/NETS FLASHPAY",
         "Cost": {
-            "Mono": "No Data",
-            "Colour": "No Data"
+            "Mono": 0.03,
+            "Colour": 0.30
         }
     },
     {
-        "Name": "E2 Print Room",
+        "Name": "E2 Level 3 Print Room",
         "locName": "FOE E2",
         "Owner": "NUSIT",
         "Lat": 1.2991619589607966,     
@@ -101,6 +101,19 @@
         "Cost": {
             "Mono": 0.04,
             "Colour": 0.40
+        }
+    },
+    {
+        "Name": "Hon Sui Sen Memorial Library Level 1",
+        "locName": "BIZ HSSML",
+        "Owner": "NUSLIBS",
+        "Lat": 1.293003389154478,     
+        "Long": 103.77469636810392,
+        "Connection": "NO DATA",
+        "payMode": "EZ-LINK/NETS FLASHPAY",
+        "Cost": {
+            "Mono": 0.03,
+            "Colour": 0.30
         }
     }
 ]
