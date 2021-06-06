@@ -115,5 +115,18 @@
             "Mono": 0.03,
             "Colour": 0.30
         }
+    },
+    {
+        "Name": "Goh Bros E-Print",
+        "locName": "YIH Goh Bros E-Print",
+        "Owner": "Goh Bros E-Print Pte Ltd",
+        "Lat": 1.2986343983821844,      
+        "Long": 103.77520315285699,
+        "Connection": "NO DATA",
+        "payMode": "NO DATA",
+        "Cost": {
+            "Mono": 0.05,
+            "Colour": "NO DATA"
+        }
     }
 ]
