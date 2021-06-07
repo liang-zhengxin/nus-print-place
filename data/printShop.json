@@ -122,8 +122,8 @@
         "Owner": "Goh Bros E-Print Pte Ltd",
         "Lat": 1.2986343983821844,      
         "Long": 103.77520315285699,
-        "Connection": "NO DATA",
-        "payMode": "NO DATA",
+        "Connection": "USB/EMAIL",
+        "payMode": "CASH/CARD",
         "Cost": {
             "Mono": 0.05,
             "Colour": "NO DATA"
