@@ -52,19 +52,6 @@
         }
     },
     {
-        "Name": "NUS COOP LT27",
-        "locName": "LT27",
-        "Owner": "Ultra Supplies",
-        "Lat": 1.2971659642750792,   
-        "Long": 103.781090656446,
-        "Connection": "USB",
-        "payMode": "PAYLAH",
-        "Cost": {
-            "Mono": 0.04,
-            "Colour": 0.50
-        }
-    },
-    {
         "Name": "Central Library Level 5",
         "locName": "CLB",
         "Owner": "NUSLIBS",
