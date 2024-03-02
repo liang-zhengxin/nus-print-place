@@ -1,8 +1,10 @@
 var map = L.map('mapdiv').setView([1.3009541383368919, 103.77867077821779], 16);
-var basemap = L.tileLayer('https://maps-{s}.onemap.sg/v3/Default/{z}/{x}/{y}.png', {
-        detectRetina: true,
-        maxZoom: 19,
-        minZoom: 0
+var basemap = L.tileLayer('https://www.onemap.gov.sg/maps/tiles/Default/{z}/{x}/{y}.png', {
+   detectRetina: true,
+   maxZoom: 19,
+   minZoom: 11,
+   /** DO NOT REMOVE the OneMap attribution below **/
+   attribution: '<img src="https://www.onemap.gov.sg/web-assets/images/logo/om_logo.png" style="height:20px;width:20px;"/>&nbsp;<a href="https://www.onemap.gov.sg/" target="_blank" rel="noopener noreferrer">OneMap</a>&nbsp;&copy;&nbsp;contributors&nbsp;&#124;&nbsp;<a href="https://www.sla.gov.sg/" target="_blank" rel="noopener noreferrer">Singapore Land Authority</a>'
 });
 map.setMaxBounds([[1.56073, 104.1147], [1.16, 103.502]]);
 basemap.addTo(map);
